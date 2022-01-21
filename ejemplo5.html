@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 5</title>
+
+    <script data-dojo-config="async: 1, dojoBlankHtmlUrl: '/path/to/blank.html'"
+    src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script>
+
+    <script>
+        require([
+            "dojo/dom",
+            "dojo/on",
+            "dojo/dom-style",
+            "dojo/_base/lang",
+            "dojo/mouse",
+            "dojo/domReady!"
+        ], function(dom, on, domStyle, lang, mouse) {
+            var myButton = dom.byId("myButton");
+            var myDiv = dom.byId("myDiv");
+
+            on(myButton, "click", function(evt) {
+                domStyle.set(myDiv, "backgroundColor", "blue");
+            });
+
+            on(myDiv, mouse.enter, function(evt) {
+                domStyle.set(myDiv, "backgroundColor", "red");
+            });
+
+            on(myDiv, mouse.leave, function(evt) {
+                domStyle.set(myDiv, "backgroundColor", "");
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="myButton">Click me!</button>
+    <div id="myDiv">Hover over me!</div>
+</body>
+</html>

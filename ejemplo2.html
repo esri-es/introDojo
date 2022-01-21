@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 2</title>
+
+    <script data-dojo-config="async: 1, dojoBlankHtmlUrl: '/path/to/blank.html'"
+    src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script>
+
+    <script>
+        require([
+            "dojo/dom-construct",
+            "dojo/fx",
+            "dojo/domReady!"
+        ], function(domConstruct, fx) {
+            var n = domConstruct.create("ul", { innerHTML:"Hola Mundo!"}, "contenedor");
+            fx.slideTo({
+                node: n,
+                top: 100,
+                left: 300
+            }).play()
+        })
+    </script>
+</head>
+<body>
+    <div id="contenedor"></div>
+</body>
+</html>

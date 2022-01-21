@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 6</title>
+
+    <script data-dojo-config="async: 1, dojoBlankHtmlUrl: '/path/to/blank.html'"
+    src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script>
+    <script>
+        require([
+            "dojo/dom-construct",
+            "dojo/on",
+            "dojo/domReady!"
+        ], function(domConstruct, on) {
+            var n = domConstruct.create("ul", { innerHTML: "Hola Mundo!" }, "contenedor");
+
+            on(n, "click", function() {
+                var a = domConstruct.create("ul", { innerHTML: "Hola de nuevo" }, "contenedor");
+                on (a, "click", function() {
+                    var b = domConstruct.create("ul", { innerHTML: "Chao!" }, "contenedor");
+                });
+            });
+        });
+    </script>
+  
+</head>
+<body>    
+    <div id="contenedor"></div>
+
+
+</body>
+</html>
