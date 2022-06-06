@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
+            data-dojo-config="async: true"
+    ></script>
+
+    <script>
+      require([
+        "dojo/dom-construct",
+        "dojo/on",
+        "dojo/domReady!"
+      ], function(domConstruct, on){
+
+         var n = domConstruct.create("ul", { innerHTML:"Hola Mundo!"}, "contenedor");
+
+         on(n, "click", function(){
+           var a = domConstruct.create("ul", { innerHTML:"Hola de nuevo!!!"}, "contenedor");
+           on(a, "click", function(){
+             var b = domConstruct.create("ul", { innerHTML: "Hasta luego!!"}, "contenedor");
+           });
+         });
+      });
+    </script>
+
+  </head>
+
+  <body>
+    <div id="contenedor"></div>
+  </body>
+</html>
